@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        form {
+            background-color: #ffffff;
+            border: 2px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        form input {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        form button:active {
+            background-color: #004080;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/" method="POST">
+        <h2>Submit Your Details</h2>
+        <input type="text" placeholder="Enter Name" name="name" required>
+        <input type="number" placeholder="Enter Age" name="age" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
