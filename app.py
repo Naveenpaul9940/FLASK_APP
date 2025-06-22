@@ -49,5 +49,5 @@ def view():
    return render_template("view.html", records = all_rec)
 
 if __name__ == "__main__":
-   create() #CALLING THE CREATE TABLE FUNCTION TO
+   create() 
    app.run(debug=True)

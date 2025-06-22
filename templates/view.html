@@ -4,26 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px 15px;
+        }
+
+        tbody tr {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: #f8f8f8;
+        }
+
+        tbody tr:last-of-type {
+            border-bottom: 2px solid #007bff;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        td a:hover {
+            color: #0056b3;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table th,
+        table td {
+            border: none;
+        }
+
+        table th {
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 
 <body>
-    <table border="1">
+    <h1>View Records</h1>
+    <table>
         <thead>
             <tr>
-                <td>ID</td>
-                <td>NAME</td>
-                <td>age</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for rec in records %}
             <tr>
-                <td>{{rec[0]}}</td>
-                <td>{{rec[1]}}</td>
-                <td>{{rec[2]}}<td>
+                <td>{{ rec[0] }}</td>
+                <td>{{ rec[1] }}</td>
+                <td>{{ rec[2] }}</td>
                 <td>
-                    <a href="/delete/{{rec[0]}}">DELETE</a>
+                    <a href="/delete/{{ rec[0] }}">Delete</a>
+                    <a href="/update/{{ rec[0] }}">Update</a>
                 </td>
             </tr>
             {% endfor %}
