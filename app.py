@@ -9,7 +9,7 @@ def create():
    conn = sqlite3.connect(DATABASE)
    cur = conn.cursor()
    cur.execute('''CREATE TABLE IF NOT EXISTS navy677(
-   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   id INTEGER PRIMARY KEY,
    name TEXT NOT NULL,
    age INTEGER NOT NULL)''')
    conn.commit()
@@ -22,11 +22,12 @@ create()
 @app.route("/", methods=["POST", "GET"])
 def index():
    if request.method == "POST":
+      id = request.form["id"]
       name = request.form["name"]
       age = request.form["age"]
       conn = sqlite3.connect(DATABASE)
       cur = conn.cursor()
-      cur.execute("INSERT INTO navy677(name, age) VALUES(?, ?)", (name, age))
+      cur.execute("INSERT INTO navy677(id, name, age) VALUES(?, ?)", (id, name, age))
       conn.commit()
       conn.close()
       return redirect("/view")
