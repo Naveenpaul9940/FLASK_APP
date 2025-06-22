@@ -27,7 +27,7 @@ def index():
       age = request.form["age"]
       conn = sqlite3.connect(DATABASE)
       cur = conn.cursor()
-      cur.execute("INSERT INTO navy677(id, name, age) VALUES(?, ?)", (id, name, age))
+      cur.execute("INSERT INTO navy677(id, name, age) VALUES(?, ?, ?)", (id, name, age))
       conn.commit()
       conn.close()
       return redirect("/view")
