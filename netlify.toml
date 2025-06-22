@@ -1,9 +1,0 @@
-[build]
-publish = "."
-command = "pip install -r requirements.txt && gunicorn app:app"
-
-[[redirects]]
-# Redirect all routes to your Flask server
-from = "/*"
-to = "/"
-status = 200
