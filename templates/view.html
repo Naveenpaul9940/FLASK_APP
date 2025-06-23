@@ -86,14 +86,17 @@
             </tr>
         </thead>
         <tbody>
-            {% for rec in records %}
+           
+            <!-- records = [(1,"naveen", 21), (2,"akash", 24), (3, "kumar", 25)] -->
+            {% for i in records %}
             <tr>
-                <td>{{ rec[0] }}</td>
-                <td>{{ rec[1] }}</td>
-                <td>{{ rec[2] }}</td>
+                <!-- i = (3,"kumar", 25) -->
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
                 <td>
-                    <a href="/delete/{{ rec[0] }}">Delete</a>
-                    <a href="/update/{{ rec[0] }}">Update</a>
+                    <a href="/delete/{{ i[0] }}">Delete</a>
+                    <a href="/update/{{ i[0] }}">Update</a>
                 </td>
             </tr>
             {% endfor %}

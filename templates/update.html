@@ -1,76 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Record</title>
     <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
         }
 
-        form {
-            background-color: #ffffff;
-            border: 2px solid #000;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
+        .form-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
         }
 
-        form h2 {
-            margin-bottom: 20px;
+        h1 {
             text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: #333;
         }
 
-        form input {
-            width: calc(100% - 20px);
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+        form {
+            display: flex;
+            flex-direction: column;
         }
 
-        form button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007BFF;
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 4px rgba(76, 175, 80, 0.3);
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
-        form button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background-color: #45a049;
         }
 
-        form button:active {
-            background-color: #004080;
+        .note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
         }
     </style>
 </head>
-
 <body>
-    <form action="/update/{{ record[0] }}" method="POST">
-        <h2>Update Details</h2>
-        <input type="number" name="id" value="{{ record[0]}}" required>
-        <input type="text" name="name" value="{{ record[1] }}" required>
-        <input type="number" name="age" value="{{ record[2] }}" required>
-        <button type="submit">Update</button>
-    </form>
+    <div class="form-container">
+        <h1>Update Record</h1>
+        <form action="/update/{{i[0]}}" method="POST"> 
+            <!-- #i = [16, "rahul", 30] -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter name to update" value="{{i[1]}}" required>
+            
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter age to update" value="{{i[2]}}" required>
+            
+            <button type="submit">Update</button>
+        </form>
+        <div class="note">
+            Make sure all fields are filled before submitting.
+        </div>
+    </div>
 </body>
-
 </html>
